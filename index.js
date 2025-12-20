@@ -20,7 +20,7 @@ while (hp1 > 0 && hp2 >0) {
         console.log(`${name2} hits ${name1} for ${dmg2} 💥 ${name1} HP: ${Math.max(0,hp1)}`);
     }
     if (hp1 > 0 && hp1 < 0.09 * 1520) {
-        const heal1 = Math.floor(Math.random() * 51) + 50;
+        const heal1 = Math.floor(Math.random() * 51) + 98;
         hp1 = Math.min(1520, hp1 + heal1);
         console.log(`${name1} casts self-heal ${heal1} HP: ${hp1}`);    
         }
