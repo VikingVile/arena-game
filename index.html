@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Arena Game</title>
+  <style>
+    body{font-family:monospace;background:#111;color:#0f0;padding:2rem}
+    pre{white-space:pre-wrap}
+  </style>
+</head>
+<body>
+  <h1>⚔️ Warrior vs Enemy ⚔️</h1>
+  <pre id="log"></pre>
+
+  <script src="index.js"></script>
+  <script>
+    // capture console.log and show it on the page
+    const logDiv = document.getElementById('log');
+    const originalLog = console.log;
+    console.log = function (...args) {
+      originalLog.apply(console, args); // keep browser console
+      logDiv.textContent += args.join(' ') + '\n';
+    };
+  </script>
+</body>
+</html>
