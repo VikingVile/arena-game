@@ -14,11 +14,11 @@
 
   <script src="index.js"></script>
   <script>
-    // capture console.log and show it on the page
+    // pipe every console.log to the page
     const logDiv = document.getElementById('log');
     const originalLog = console.log;
     console.log = function (...args) {
-      originalLog.apply(console, args); // keep browser console
+      originalLog.apply(console, args);
       logDiv.textContent += args.join(' ') + '\n';
     };
   </script>
