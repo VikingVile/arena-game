@@ -9,8 +9,8 @@ const manacost = 20;
 let dmg1 = 81;
 let dmg2 = 112;
 
-let hp1 = 520;
-let hp2 = 280;
+let hp1 = 1830;
+let hp2 = 1380;
 
 let turn = 1;
 
