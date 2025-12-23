@@ -2,6 +2,10 @@ const name1 = "Warrior";
 const name2 = "Enemy";
 let emoji; 
 
+let mana1 = 100;
+let mana2 = 100;
+const manacost = 20; 
+
 let hp1 = 520;
 let hp2 = 280;
 
@@ -41,6 +45,19 @@ while (hp1 > 0 && hp2 >0) {
                 const critdmg2 = 1 * 2;
                 hp1 -= critdmg2;
                 console.log(`💥 CRITICAL ${name2} hits ${name1} for ${critdmg2} HP: ${Math.max(0, hp1)} `);
+            }
+            if (mana1 >= manacost) { 
+                mana1 -= manacost;
+                const specialDMG1 = dmg1 * 2;
+                hp2 -= specialDMG1;
+                console.log(`⚡SPECIAL! ${name1} spends 20 mana for ${specialDMG1} ⚡ ${name2} HP: ${Math.max(0, hp2)}`)
+
+            if (mana2 >= manacost){
+                mana2 -= manacost;
+                const specialDMG2 = dmg2 * 2;
+                hp1 -= specialDMG2;
+                console.log(`⚡ SPECIAL! ${name2} spends 20 mana for ${specialDMG2} ⚡ ${Math.max(0, hp1)}`)
+            }    
             }
         } 
         turn++
