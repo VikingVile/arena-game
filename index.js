@@ -14,9 +14,8 @@ let hp2 = 1380;
 
 let turn = 1;
 
-console.log("𝘼𝙣𝙣𝙤𝙪𝙣𝙘𝙚𝙢𝙚𝙣𝙩: Begin Battle Warrior VS Enemy ‼️ ");
-
 while (hp1 > 0 && hp2 > 0) {
+  console.log("𝘼𝙣𝙣𝙤𝙪𝙣𝙘𝙚𝙢𝙚𝙣𝙩: Begin Battle Warrior VS Enemy ‼️ ");
   // ===== Warrior normal hit =====
   const dmg1 = Math.floor(Math.random() * 12) + 81;
   hp2 -= dmg1;
