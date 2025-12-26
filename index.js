@@ -14,8 +14,9 @@ let hp2 = 1380;
 
 let turn = 1;
 
+console.log("𝘼𝙣𝙣𝙤𝙪𝙣𝙘𝙚𝙢𝙚𝙣𝙩: Begin Battle Warrior VS Enemy ‼️ ");
+
 while (hp1 > 0 && hp2 > 0) {
-  console.log("𝘼𝙣𝙣𝙤𝙪𝙣𝙘𝙚𝙢𝙚𝙣𝙩: Begin Battle Warrior VS Enemy ‼️ ");
   // ===== Warrior normal hit =====
   const dmg1 = Math.floor(Math.random() * 12) + 81;
   hp2 -= dmg1;
@@ -68,6 +69,16 @@ while (hp1 > 0 && hp2 > 0) {
     const critdmg2 = 15 * 52;
     hp1 -= critdmg2;
     console.log(`💥 CRITICAL! ${name2} hits ${name1} for ${critdmg2} HP: ${Math.max(0, hp1)}`);
+  }
+
+  // ===== Mana Regen ======
+  if (mana1 < 100) {
+    mana1 = Math.min(100, mana1 + 5);
+    console.log(`💧 ${name1} regains 5 mana (${name1}/100)`);
+    if (mana2 < 100) {
+      mana2 = Math.min (100, mana2 + 5);
+      console.log(`💧 ${name2} regains 5 mana (${name2}/100)`);
+    }
   }
   turn++;
 }
