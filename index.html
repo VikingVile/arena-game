@@ -6,6 +6,7 @@
   <style>
     body{font-family:monospace;background:#111;color:#0f0;padding:2rem}
     pre{white-space:pre-wrap}
+    button[disabled] { opacity: 0.5; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -26,36 +27,15 @@
   <button id="loadBtn"> 📂 Load</button>
 
   <script>
-  // ---- Save current state ---- 
-  document.getElementById('saveBtn').onclick = () => {
-    const state = {hp1, hp2, mana1, mana2, turn};
-    localStorage.setItem('arenaSave', JSON.stringify(state));
-    console.log('💾 Game Saved!');
-  };
-  // ---- Load Saved Data ----
-  document.getElementById('loadBtn').onclick = () => {
-    const saved = localStorage.getItem('arenaSave');
-    if (saved) {
-      const state = JSON.parse(saved);
-      hp1 = state.hp1; hp2 = state.hp2;
-      mana1 = state.mana1; mana2 = state.mana2;
-      turn = state.turn;
-      console.log('📂 Game loaded!');
-    } else {
-      console.log('❌ No save found');
+  // Auto-disable Save button when battle ends (zero JS call)
+  const checkVictory = () => {
+    if (typeof hp1 !== 'undefined' && (hp1 <= 0 || hp2 <= 0)) {
+      document.getElementById('saveBtn').disabled = true;
+      document.getElementById('loadBtn').disabled = true;
     }
   };
-  // ---- Disable buttons (browser DOM) ----
-  function disableButtons(){
-    document.getElementById('saveBtn').disabled = true;
-    document.getElementById('loadBtn').disabled = true;
-    document.getElementById('saveBtn').style.opacity = '0.5';
-    document.getElementById('loadBtn').style.opacity = '0.5';
-  }
-  // ---- Auto-disable on victory (browser only) ----
-  setTimeout(() => {
-    if (typeof hp1 !== 'undefined' && (hp1 <= 0 || hp2 <= 0)) disableButtons();
-  }, 0);
+  setInterval(checkVictory, 500); // check every 500 ms
+</script>
 </script>
 </script>
   </script>
