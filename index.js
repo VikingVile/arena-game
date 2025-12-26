@@ -22,6 +22,13 @@ while (hp1 > 0 && hp2 > 0) {
   hp2 -= dmg1;
   console.log(`${name1} hits ${name2} for ${dmg1} ⚔️ ${name2} HP: ${Math.max(0, hp2)}`);
 
+  const dodge1 = Math.random() < 0.15;
+  if (dodge1){
+    console.log(`💨 ${name2} dodged the entire attack !`);
+  } else {
+
+  }
+
   // Warrior special
   if (mana1 >= manacost) {
     mana1 -= manacost;
@@ -35,6 +42,13 @@ while (hp1 > 0 && hp2 > 0) {
     const dmg2 = Math.floor(Math.random() * 15) + 112;
     hp1 -= dmg2;
     console.log(`${name2} hits ${name1} for ${dmg2} ⚔️ ${name1} HP: ${Math.max(0, hp1)}`);
+
+    const dodge2 = Math.random() < 0.15;
+    if (dodge2){
+      console.log(`💨 ${name1} dodged the entire atacks !`);
+    } else {
+
+    } 
 
     // Enemy special
     if (mana2 >= manacost) {
@@ -86,8 +100,10 @@ while (hp1 > 0 && hp2 > 0) {
   console.log(`-----${turn}----- `)
 }
 
-  // ===== Victory banner =====
-  const winner = hp1 > 0 ? name1 : name2;
-  console.log(`🏆 ${winner} stands victorious! 🏆`);
-disableButtons();
 
+// ===== Victory banner =====
+const winner = hp1 > 0 ? name1 : name2;
+console.log(`🏆 ${winner} stands victorious! 🏆`);
+setTimeout(() => {
+  if (typeof hp1 !== 'undefined' && (hp1 <= 0 || hp2 <= 0)) disableButtons();
+}, 0);
