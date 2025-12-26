@@ -75,13 +75,14 @@ while (hp1 > 0 && hp2 > 0) {
   if (mana1 < 100) {
     mana1 = Math.min(100, mana1 + 5);
     console.log(`💧 ${name1} regains 5 mana (${name1}/100)`);
-    if (mana2 < 100) {
+  if
+    (mana2 < 100) {
       mana2 = Math.min (100, mana2 + 5);
       console.log(`💧 ${name2} regains 5 mana (${name2}/100)`);
     }
   }
   turn++;
-  
+
   console.log(`-----${turn}----- `)
 }
 
