@@ -81,6 +81,8 @@ while (hp1 > 0 && hp2 > 0) {
     }
   }
   turn++;
+  
+  console.log(`-----${turn}----- `)
 }
 
   // ===== Victory banner =====
