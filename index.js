@@ -89,3 +89,5 @@ while (hp1 > 0 && hp2 > 0) {
   // ===== Victory banner =====
   const winner = hp1 > 0 ? name1 : name2;
   console.log(`🏆 ${winner} stands victorious! 🏆`);
+  disableButtons();
+  
