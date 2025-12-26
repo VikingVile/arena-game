@@ -25,9 +25,7 @@
   <button id="saveBtn"> 💾 Save</button>
   <button id="loadBtn"> 📂 Load</button>
 
-<script>
-  
-
+  <script>
   // ---- Save current state ---- 
   document.getElementById('saveBtn').onclick = () => {
     const state = {hp1, hp2, mana1, mana2, turn};
@@ -47,10 +45,18 @@
       console.log('❌ No save found');
     }
   };
+  // ---- Disable buttons (browser DOM) ----
+  function disableButtons(){
+    document.getElementById('saveBtn').disabled = true;
+    document.getElementById('loadBtn').disabled = true;
+    document.getElementById('saveBtn').style.opacity = '0.5';
+    document.getElementById('loadBtn').style.opacity = '0.5';
+  }
   // ---- Auto-disable on victory (browser only) ----
   setTimeout(() => {
     if (typeof hp1 !== 'undefined' && (hp1 <= 0 || hp2 <= 0)) disableButtons();
   }, 0);
+</script>
 </script>
   </script>
 </body>
